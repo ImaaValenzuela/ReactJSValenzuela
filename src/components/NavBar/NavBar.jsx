@@ -1,4 +1,5 @@
 import React from "react";
+import CartWidget from "../CartWidget/CartWidget";
 import logo from "./logo_batuk.svg";
 import './navBar.css'
 
@@ -21,6 +22,9 @@ const NavBar = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link li-hoover" href="/">Huoky</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/"> <CartWidget/> </a>
                                 </li>
                             </ul>
                         </div>
