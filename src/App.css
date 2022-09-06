@@ -1,0 +1,13 @@
+:root{
+  --white: #fff;
+  --black: #000;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.background-primary{
+  background-color: var(--white);
+}
