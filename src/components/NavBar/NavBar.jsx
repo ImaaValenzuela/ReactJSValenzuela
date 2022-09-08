@@ -24,7 +24,7 @@ const NavBar = () => {
                                     <a className="nav-link li-hoover" href="/">Huoky</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/"> <CartWidget/> </a>
+                                    <a className="nav-link " href="/"> <CartWidget/> </a>
                                 </li>
                             </ul>
                         </div>
