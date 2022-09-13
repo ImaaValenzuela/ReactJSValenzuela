@@ -1,6 +1,6 @@
 import React from "react";
 import CartWidget from "../CartWidget/CartWidget";
-import logo from "./logo_batuk.svg";
+import logo from "../../assets/logo_batuk.svg";
 import './navBar.css'
 
 const NavBar = () => {

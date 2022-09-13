@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./bag-emty.svg";
+import logo from "../../assets/bag-emty.svg";
 import './cartWidget.css';
 
 const CartWidget = () =>{
