@@ -1,14 +1,14 @@
 import React from "react";
-import './itemListContainer.css';
+import { Link } from "react-router-dom";
+import "./itemListContainer.css";
 
-const Item = ({info}) => {
-    return (
-        <a href="/" className="product">
-            <img src={info.image} alt="" />
-            <p className="align-baseline">{info.title}</p>
-            <p>{info.price}</p>
-        </a>
-    )
+const Item = ({ info }) => {
+	return (
+		<Link to={`/detalle/${info.id}`} className="product">
+			<img src={info.image} alt="" />
+			<p>{info.title}</p>
+		</Link>
+	);
 };
 
 export default Item;
