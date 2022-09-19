@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "./ItemList";
 import './itemListContainer.css';
 import {useParams} from 'react-router-dom';
@@ -14,40 +13,31 @@ const products = [
 ]
 
 
-const ItemListContainer = (props) => {
+export const ItemListContainer = ({ texto }) => {
+	const [data, setData] = useState([]);
+	const { categoriaId } = useParams();
 
-    const {categoriaId} = useParams();
+	useEffect(() => {
+		const getData = new Promise((resolve) => {
+			setTimeout(() => {
+				resolve(products);
+			}, 1000);
+		});
+		if (categoriaId) {
+			getData.then((res) =>
+				setData(res.filter((product) => product.category === categoriaId)),
+			);
+		} else {
+			getData.then((res) => setData(res));
+		}
+	}, [categoriaId]);
 
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const getData = new Promise(resolve =>{
-            setTimeout(()=>{
-                resolve(products)
-            }, 1000);
-        });
-        if (categoriaId){
-            getData.then(res => setData(res.filter( woman => woman.category === categoriaId)))
-        } else if (categoriaId){
-            getData.then(res => setData(res.filter( man => man.category === categoriaId)))
-        } else {
-            getData.then( res => setData(res))
-        }
-
-    }, [categoriaId])
-
-    const onAdd = (quantity) =>{
-        alert(`Has añadido ${quantity} unidades al carrito`)
-    }
-
-    return(
-        <div>
-            <h1 className="text-center">Batuk Originals</h1>
-            <p className="text-center">collection spring summer 2023 <br /> <span className="fw-bold"> coming soon </span> </p>
-            <ItemCount initial={1} stock={5} onAdd={onAdd}/>
-            <ItemList data={data}/>
-        </div>
-    )
-}
+	return (
+		<>
+			<p className="text-center">collection spring summer 2023 <br /> <span className="fw-bold"> coming soon </span> </p>
+			<ItemList data={data} />
+		</>
+	);
+};
 
 export default ItemListContainer;
