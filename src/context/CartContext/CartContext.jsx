@@ -8,9 +8,9 @@ const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
 	const addItem = (item, newQuantity) => {
-	    const newCart = cart.filter(prod => prod.id !== item.id);
-	    newCart.push({ ...item, quantity: newQuantity });
-	    setCart(newCart);
+		const newCart = cart.filter(prod => prod.id !== item.id);
+		newCart.push({ ...item, quantity: newQuantity });
+		setCart(newCart);
 	}
 
 	const clearCart = () => setCart([]);
@@ -22,7 +22,7 @@ const CartProvider = ({ children }) => {
 		setCart(cart.filter((product) => product.id !== id));
 
 	const totalPrice = () => {
-		return cart.reduce((prev, act) => prev + act.quantity * act.price);
+		return cart.reduce((prev, act) => prev + act.quantity * act.price,[]);
 	}
 
 	const totalProducts = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0);
